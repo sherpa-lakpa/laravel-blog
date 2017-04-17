@@ -1,3 +1,8 @@
+<p align="center">
+#BASIC BLOG CREATED WITH LARAVEL
+</p>
+###Special thanks to devMarketer (Youtube)
+
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
