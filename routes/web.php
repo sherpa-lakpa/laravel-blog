@@ -29,12 +29,17 @@ Route::get('blog', ['uses' => 'BlogController@getIndex','as' => 'blog.index']);
 
 Route::get('/', 'PagesController@getIndex');
 
+Route::get('browse', 'BrowseController@getIndex');
+
+
 Route::get('about', 'PagesController@getAbout');
 
 Route::get('contact', 'PagesController@getContact');
 Route::post('contact', 'PagesController@postContact');
 
 Route::resource('posts', 'PostController');
+
+Route::resource('contacts', 'ContactController');
 
 Auth::routes();
 

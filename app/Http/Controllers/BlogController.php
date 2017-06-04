@@ -9,7 +9,8 @@ use App\Comment;
 class BlogController extends Controller
 {
 	public function getIndex(){
-		$posts = Post::orderBy('id','desc')->paginate(5);
+		// $posts = Post::orderBy('id','desc')->paginate(5);
+		$posts = Post::orderBy('id','desc')->paginate();
 
     	return view('blog.index')->withPosts($posts);
     }
