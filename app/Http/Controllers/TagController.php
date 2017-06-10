@@ -41,6 +41,16 @@ class TagController extends Controller
             ));
         $tag = new Tag;
         $tag->name = $request->name;
+
+        $tags = Tag::all();
+
+        foreach ($tags as $key => $value) {
+            if($request->name == $value->name){
+                Session::flash('error',"Tag dublicated $request->name");
+                return redirect()->route('tags.index');
+            }
+        }
+
         $tag->save();
 
         Session::flash('success','Tag saved successfully!');
@@ -89,6 +99,16 @@ class TagController extends Controller
 
         $tag->name = $request->name;
 
+        $tags = Tag::all();
+
+        foreach ($tags as $key => $value) {
+            if($request->name == $value->name){
+                Session::flash('error',"Tag dublicated $request->name");
+                return redirect()->route('tags.index');
+            }
+        }
+        
+
         $tag->save();
 
         Session::flash('success','Tag Edited successfully!');
@@ -105,7 +125,7 @@ class TagController extends Controller
     public function destroy($id)
     {
         $tag = Tag::find($id);
-        $tag->posts()->detach();
+        $tag->posts()->detach($id);
 
         $tag->delete();
 

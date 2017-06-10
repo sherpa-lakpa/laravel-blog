@@ -1,10 +1,14 @@
-@extends('main')
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
-@section('title','| Register')
-
-@section('content')
+<style type="text/css">
+    body, html {
+    height: 100%;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));
+}
+</style>
 <div class="container">
-    <div class="row">
+    <div class="row" style="margin-top: 100px;">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">Register</div>
@@ -75,4 +79,3 @@
         </div>
     </div>
 </div>
-@endsection

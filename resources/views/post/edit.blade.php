@@ -1,8 +1,16 @@
-@extends('main')
+@extends('admins.main')
 
 @section('title','| Edit Post')
 
 @section('stylesheet')
+
+<!-- added to overcome bootstrap load fail -->
+<!-- Bootstrap Core CSS -->
+<link href="../../admins/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom CSS -->
+<link href="../../admins/css/sb-admin.css" rel="stylesheet">
+
 	{!!	Html::style('css/parsley.css')	!!}
 	{!!	Html::style('css/select2.min.css')	!!}
 
@@ -17,6 +25,15 @@
 @endsection
 
 @section('content')
+<!-- Page Heading -->
+<div class="row">
+	<div class="col-lg-12">
+		<h1 class="page-header">
+		Edit Post <small> ({{ $post->title }})</small>
+		</h1>
+	</div>
+</div>
+<!-- /.row -->
 <div class="row">
 	{!! Form::model($post, ['route' => ['posts.update', $post->id], 'method' => 'PUT', 'files' => true]) !!}
 	<div class="col-md-8" style="word-wrap: break-word">
@@ -68,6 +85,14 @@
 @endsection
 
 @section('scripts')
+
+<!-- jQuery -->
+<script src="../../admins/js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="../../admins/js/bootstrap.min.js"></script>
+
+
 	{!!	Html::script('js/parsley.min.js')	!!}
 	{!!	Html::script('js/select2.min.js')	!!}
 

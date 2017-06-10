@@ -19,7 +19,7 @@
 <!---//End-header---->
         <!---start-content---->
         <div class="content">
-            <div class="wrap">
+            <div class="wrap" style="margin-top: -100px;">
              <div id="main" role="main">
                   <ul id="tiles">
                     <!-- These are our grid blocks -->

@@ -1,14 +1,23 @@
-@extends('main')
+@extends('admins.main')
 
 @section('title', '| All posts')
 
 @section('content')
+
+<!-- Page Heading -->
+<div class="row">
+	<div class="col-lg-12">
+		<h1 class="page-header">
+		Posts <small>All posts Overview</small>
+		</h1>
+	</div>
+</div>
+<!-- /.row -->
 	<div class="row">
-		<div class="col-md-10">
-			<h1>All posts</h1>
+		<div class="col-md-8">
 		</div>
-		<div class="col-md-2">
-			<a href="{{ route('posts.create') }}" class="btn btn-lg btn-block btn-primary btn-h1-spacing">Create New Post</a>
+		<div class="col-md-2 col-md-offset-1">
+			<a href="{{ route('posts.create') }}" class="btn btn-lg btn-primary">Create New Post</a>
 		</div>
 		<div class="col-md-12">
 			<hr>
@@ -17,7 +26,7 @@
 	</div> <!-- End of the row !-->
 	<div class="row">
 		<div class="col-md-12">
-			<table class="table">
+			<table class="table table-hover">
 				<thead>
 					<th>#</th>
 					<th>title</th>

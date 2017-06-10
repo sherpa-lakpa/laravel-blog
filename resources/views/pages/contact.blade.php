@@ -6,7 +6,6 @@
 <!-- header -->
 <div class="contact-top">
 <div class="container">
-    <h2>Contact</h2>    
       <div class="contact">
 
           <div class="contact-down">

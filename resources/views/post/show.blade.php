@@ -1,11 +1,31 @@
-@extends('main')
+@extends('admins.main')
 
 @section('title','| View Post')
 
+@section('stylesheet')
+
+<!-- added to overcome bootstrap load fail -->
+<!-- Bootstrap Core CSS -->
+<link href="../admins/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom CSS -->
+<link href="../admins/css/sb-admin.css" rel="stylesheet">
+
+@endsection
+
 @section('content')
+<!-- Page Heading -->
+<div class="row">
+	<div class="col-lg-12">
+		<h1 class="page-header">
+		Post Title - <small>{{ $post->title }}</small>
+		</h1>
+	</div>
+</div>
+<!-- /.row -->
+
 <div class="row">
 	<div class="col-md-8"  style="word-wrap: break-word">
-		<h1>{{	$post->title	}}</h1>
 		
 		<img src="{{ asset('images/' . $post->image) }}" height="200" width="400" alt="This is lakpa bodyguard">
 		<p class="lead"> {!! $post->body !!}</p>
@@ -85,4 +105,14 @@
 		<a href="{{ route('posts.index') }}" class="btn btn-success btn-block">Show all post</a>
 	</div>
 </div>
+@endsection
+
+@section('scripts')
+
+<!-- jQuery -->
+<script src="../admins/js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="../admins/js/bootstrap.min.js"></script>
+
 @endsection

@@ -43,4 +43,4 @@ Route::resource('contacts', 'ContactController');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/admin', 'AdminController@index');

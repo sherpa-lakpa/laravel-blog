@@ -1,8 +1,16 @@
-@extends('main')
+@extends('admins.main')
 
 @section('title', '| Create new post')
 
 @section('stylesheet')
+
+<!-- added to overcome bootstrap load fail -->
+<!-- Bootstrap Core CSS -->
+<link href="../admins/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom CSS -->
+<link href="../admins/css/sb-admin.css" rel="stylesheet">
+
 	{!!	Html::style('css/parsley.css')	!!}
 	{!!	Html::style('css/select2.min.css')	!!}
 
@@ -17,9 +25,17 @@
 @endsection
 
 @section('content')
+<!-- Page Heading -->
+<div class="row">
+	<div class="col-lg-12">
+		<h1 class="page-header" style="text-align: center;">
+		Create New Post
+		</h1>
+	</div>
+</div>
+<!-- /.row -->
 	<div class="row">
 	<div class="col-md-8 col-md-offset-2">
-	<h1>Create New Post</h1>
 		<hr>
 		{!! Form::open(['route' => 'posts.store','data-parsley-validate' => '', 'files' => true]) !!}
     		{{ Form::label('title', 'Title: ') }}
@@ -54,6 +70,14 @@
 @endsection
 
 @section('scripts')
+
+<!-- jQuery -->
+<script src="../admins/js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="../admins/js/bootstrap.min.js"></script>
+
+
 	{!!	Html::script('js/parsley.min.js')	!!}
 	{!!	Html::script('js/select2.min.js')	!!}
 

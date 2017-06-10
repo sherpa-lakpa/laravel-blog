@@ -3,7 +3,7 @@
 <script src="js/jquery.min.js"></script>
 <div class="banner">
   <div class="container">
-    <div class="header">
+    <div class="header" style="padding: 20px;">
       <div class="logo">
         <a href="/"><img src="{{ URL::to('/') }}/images/logo.png" class="img-responsive" alt="" /></a>
       </div>
@@ -14,20 +14,18 @@
         <li>
         <div class="search2">
           <form>
-            <input type="text" value="Search.." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search..';}">
+            <input type="text" value="Search.." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search..';}" style="height: 13px;">
             <input type="submit" value="">
           </form>
         </div></li>
           <div class="clearfix"></div>
-          @if( Auth::check() )
+          {{-- @if( Auth::check() )
             <li class="dropdown">
               <a href="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
               Hello {{ Auth::user()->name }}              
               <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="{{ route('posts.index') }}">Posts</a></li>
-                <li><a href="{{ route('categories.index') }}">Categories</a></li>
-                <li><a href="{{ route('tags.index') }}">Tags</a></li>
+                <li><a href="{/admin">Admin Panel</a></li>
                 <li role="separator" class="divider"></li>
                 <li>
                      <a href="{{ route('logout') }}"
@@ -45,7 +43,7 @@
                   <a class="text-bold" href="{{ route('login')}}" data-ga-click="(Logged out) Header, clicked Sign in, text:sign-in"><button class="btn btn-primary">Sign in</button></a> or 
                   <a class="text-bold" href="{{ route('register')}}" data-ga-click="(Logged out) Header, clicked Sign up, text:sign-up"><button class="btn btn-default">Sign up</button></a>
                 </div>
-                @endif
+                @endif --}}
         </ul>
           
       </div>

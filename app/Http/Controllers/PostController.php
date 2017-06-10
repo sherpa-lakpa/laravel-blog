@@ -96,7 +96,32 @@ class PostController extends Controller
     public function show($id)
     {   
         $post = Post::find($id);
-        return view('post.show')->withPost($post);
+        
+        $category = Category::find($post->category_id);
+
+        // echo "<script>alert($post->category_id)</script>";
+
+        if(!isset($category)){
+
+            $categories = Category::all();
+            $cats = [];
+
+            foreach ($categories as $key => $category) {
+                $cats[$category->id] = $category->name;
+            }
+            $tags = Tag::all();
+            $tags2 = array();
+
+            foreach ($tags as $key => $tag) {
+                $tags2[$tag->id] = $tag->name;
+            }
+            //return the var in view
+            Session::flash('error',"Category Deleted of this post please assign another.");
+            return view('post.edit')->withPost($post)->withCats($cats)->withTags($tags2);
+        }else{
+            return view('post.show')->withPost($post);    
+        }
+
     }
 
     /**

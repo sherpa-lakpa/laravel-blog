@@ -1,12 +1,20 @@
-@extends('main')
+@extends('admins.main')
 
 @section('title', '| Category')
 
 @section('content')
+<!-- Page Heading -->
+<div class="row">
+	<div class="col-lg-12">
+		<h1 class="page-header">
+		Categories <small>All categories Overview</small>
+		</h1>
+	</div>
+</div>
+<!-- /.row -->
 <div class="row">
 	<div class="col-md-8">
-		<h1>Categies</h1>
-		<table class="table">
+		<table class="table table-hover">
 			<thead>
 				<tr>
 					<td>#</td>
@@ -18,6 +26,7 @@
 				<tr>
 					<td>{{ $category->id }}</td>
 					<td>{{ $category->name }}</td>
+					<td><a href="{{ route('categories.show', $category->id) }}" class="btn btn-default btn-sm">View</a><a href="{{ route('categories.edit', $category->id) }}" class="btn btn-default btn-sm">Edit</a></td>
 				</tr>
 			@endforeach
 			</tbody>
@@ -30,7 +39,7 @@
 			 {{ Form::label('name', 'Name: ') }}
 			 {{ Form::text('name', null, ['class' => 'form-control']) }}
 			  
-			 {{ Form::submit('Submit', ['class' => 'btn btn-success btn-block btn-h1-spacing']) }}
+			 {{ Form::submit('Add Category', ['class' => 'btn btn-success btn-block btn-h1-spacing']) }}
 
 			{!! Form::close() !!}
 		</div>

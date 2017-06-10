@@ -9,7 +9,6 @@
 <div class="about">
 
 <div class="container">
-		<h2>About</h2>
 <div class="biography">
 		<div class="biographys">
 			<div class="col-md-4 biography-info">
