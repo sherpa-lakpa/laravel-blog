@@ -106,7 +106,7 @@ class TagController extends Controller
                 return redirect()->route('tags.index');
             }
         }
-        
+
         $tag->save();
 
         Session::flash('success','Tag Edited successfully!');
@@ -122,6 +122,7 @@ class TagController extends Controller
      */
     public function destroy($id)
     {
+        $tag = Tag::find($id);
         $tag->posts()->detach($id);
 
         $tag->delete();

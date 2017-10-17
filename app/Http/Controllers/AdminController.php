@@ -50,10 +50,13 @@ class AdminController extends Controller
         $tag = Tag::count();
         $comment = Comment::count();
         $user = User::count();
+
         $messages = $this->messages();
         $notification = Alert::orderBy('id', 'desc')
                 ->limit(3)
                 ->get();
         return view('admins.index')->withPost($post)->withCategory($category)->withTag($tag)->withComment($comment)->withUser($user)->withNotification($notification);
+
+        return view('admins.index')->withPost($post)->withCategory($category)->withTag($tag)->withComment($comment)->withUser($user);
     }
 }

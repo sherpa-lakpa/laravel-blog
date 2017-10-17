@@ -29,10 +29,8 @@ Dashboard <small>Statistics Overview</small>
 <div class="row">
 <div class="col-lg-12">
 <div class="alert alert-info alert-dismissable">
-@foreach($notification as $not)
 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-<i class="fa fa-info-circle"></i>  <strong>This is notification about </strong> {{ $not->title }} ( {{ $not->message }} )
-@endforeach
+<i class="fa fa-info-circle"></i>  <strong>This is notification about </strong> {{ $notification[0]->title }} ( {{ $notification[0]->message }} )
 </div>
 </div>
 </div>
@@ -119,6 +117,7 @@ Dashboard <small>Statistics Overview</small>
     </div>
 </div>
 <a href="{{ route('comments.index') }}">
+<a href="#">
     <div class="panel-footer">
         <span class="pull-left">View Details</span>
         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -129,6 +128,8 @@ Dashboard <small>Statistics Overview</small>
 </div>
 <div class="col-lg-3 col-md-6">
 <div class="panel panel-inverse">
+<div class="panel panel-red">
+
 <div class="panel-heading">
     <div class="row">
         <div class="col-xs-3">
@@ -141,6 +142,7 @@ Dashboard <small>Statistics Overview</small>
     </div>
 </div>
 <a href="{{ route('users.index') }}">
+<a href="#">
     <div class="panel-footer">
         <span class="pull-left">View Details</span>
         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

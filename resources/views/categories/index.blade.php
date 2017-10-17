@@ -7,6 +7,7 @@
 <div class="row">
 	<div class="col-lg-12">
 		<h1 class="page-header">
+
 		Categories
 		</h1>
 		<ol class="breadcrumb">
@@ -17,6 +18,8 @@
                 <i class="fa fa-tasks"></i> Category
             </li>
         </ol>
+		</h1>
+
 	</div>
 </div>
 <!-- /.row -->
@@ -34,11 +37,15 @@
 				<tr>
 					<td>{{ $category->id }}</td>
 					<td>{{ $category->name }}</td>
+	
 					<td><a href="{{ route('categories.edit', $category->id) }}" class="btn btn-default btn-sm">Edit</a>
 					{!! Form::open(['route' => ['categories.destroy', $category->id], 'method' => 'DELETE']) !!}
 					{{ Form::submit('Delete', ['class' => 'btn btn-sm btn-default']) }}
 					{{ Form::close() }}
 					</td>
+	
+					<td><a href="{{ route('categories.show', $category->id) }}" class="btn btn-default btn-sm">View</a><a href="{{ route('categories.edit', $category->id) }}" class="btn btn-default btn-sm">Edit</a></td>
+	
 				</tr>
 			@endforeach
 			</tbody>

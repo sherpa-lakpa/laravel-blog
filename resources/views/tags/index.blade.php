@@ -8,6 +8,7 @@
 <div class="row">
 	<div class="col-lg-12">
 		<h1 class="page-header">
+	
 		Tags
 		</h1>
 		<ol class="breadcrumb">
@@ -18,6 +19,7 @@
                 <i class="fa fa-tags"></i> Tags
             </li>
         </ol>
+		</h1>
 	</div>
 </div>
 <!-- /.row -->
@@ -42,6 +44,8 @@
 					{{ Form::close() }}
 
 					</td>	
+
+					<td><a href="{{ route('tags.show', $tag->id) }}" class="btn btn-default btn-sm">View</a><a href="{{ route('tags.edit', $tag->id) }}" class="btn btn-default btn-sm">Edit</a></td>	
 				</tr>
 			@endforeach
 			</tbody>

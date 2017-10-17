@@ -62,4 +62,3 @@ Route::resource('pages', 'PagesController');
 
 // Route::get('search', 'ContactController@search');
 Route::get('search', 'BrowseController@search');
-

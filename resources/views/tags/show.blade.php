@@ -11,10 +11,13 @@
 <!-- Custom CSS -->
 <link href="../admins/css/sb-admin.css" rel="stylesheet">
 
+<<<<<<< HEAD
 <!-- Custom Fonts -->
 <link href="../admins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 
+=======
+>>>>>>> 688a4c38d431c09417f4125d56b10ec7c461a232
 @endsection
 
 @section('content')

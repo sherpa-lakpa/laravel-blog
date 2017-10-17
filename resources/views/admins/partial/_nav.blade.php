@@ -15,7 +15,6 @@
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
             <ul class="dropdown-menu message-dropdown">
-
             @inject('messages', 'App\Http\Controllers\AdminController')
 
             <?php $messages = $messages->messages(); ?>
@@ -28,25 +27,68 @@
                                 <img class="media-object" src="http://placehold.it/50x50" alt="">
                             </span>
                             <div class="media-body">
+
                                 <h5 class="media-heading"><strong>{{ $message->name }}</strong>
                                 </h5>
                                 <p class="small text-muted"><i class="fa fa-clock-o"></i> {{ $message->created_at }}</p>
                                 <p>
                                 {{   substr($message->message, 0, 20)  }}
                                 {{ strlen($message->message) > 20 ? "..." : "" }}</p>
+
+                                <h5 class="media-heading"><strong>John Smith</strong>
+                                </h5>
+                                <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur...</p>
                             </div>
                         </div>
                     </a>
                 </li>
+                <li class="message-preview">
+                    <a href="#">
+                        <div class="media">
+                            <span class="pull-left">
+                                <img class="media-object" src="http://placehold.it/50x50" alt="">
+                            </span>
+                            <div class="media-body">
+                                <h5 class="media-heading"><strong>John Smith</strong>
+                                </h5>
+                                <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="message-preview">
+                    <a href="#">
+                        <div class="media">
+                            <span class="pull-left">
+                                <img class="media-object" src="http://placehold.it/50x50" alt="">
+                            </span>
+                            <div class="media-body">
+                                <h5 class="media-heading"><strong>John Smith</strong>
+                                </h5>
+                                <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur...</p>
+
+                            </div>
+                        </div>
+                    </a>
+                </li>
+
             @endforeach
                 <li class="message-footer">
                     <a href="{{ route('contacts.index') }}">Read All New Messages</a>
+ 
+                <li class="message-footer">
+                    <a href="#">Read All New Messages</a>
+ 
                 </li>
             </ul>
         </li>
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
             <ul class="dropdown-menu alert-dropdown">
+    
 
                 @inject('alerts', 'App\Http\Controllers\AdminController')
 
@@ -59,10 +101,34 @@
                 <li class="divider"></li>
                 <li>
                     <a href="{{ route('alerts.index') }}">View All</a>
+    
+                <li>
+                    <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
+                </li>
+                <li>
+                    <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
+                </li>
+                <li>
+                    <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
+                </li>
+                <li>
+                    <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
+                </li>
+                <li>
+                    <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
+                </li>
+                <li>
+                    <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="#">View All</a>
+    
                 </li>
             </ul>
         </li>
         <li class="dropdown">
+    
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{ Auth::user()->name }} <b class="caret"></b></a>
             <ul class="dropdown-menu">
                 <li>
@@ -70,6 +136,15 @@
                 </li>
                 <li>
                     <a href="{{ route('contacts.index') }}"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
+    
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
+    
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
@@ -95,7 +170,9 @@
                 <a href="/admin"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
             </li>
             <li class="{{ Request::is('posts') ? "active" : "" }}">
-                <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-file-text"></i> Posts <span style="margin-right: 110px;"></span><i class="fa fa-fw fa-caret-down"></i></a>
+    
+                <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-file"></i> Posts <span style="margin-right: 110px;"></span><i class="fa fa-fw fa-caret-down"></i></a>
+    
                 <ul id="demo" class="collapse">
                     <li>
                         <a href="{{ route('posts.index') }}">Show Posts</a>
@@ -111,6 +188,7 @@
             <li class="{{ Request::is('tags') ? "active" : "" }}">
                 <a href="{{ route('tags.index') }}"><i class="fa fa-fw fa-tags"></i> Tags</a>
             </li>
+    
             <li class="{{ Request::is('skills') ? "active" : "" }}">
                 <a href="{{ route('skills.index') }}"><i class="fa fa-fw fa-code"></i> Skills</a>
             </li>
@@ -134,6 +212,7 @@
             <?php
             }
             ?>
+    
         </ul>
     </div>
     <!-- /.navbar-collapse -->

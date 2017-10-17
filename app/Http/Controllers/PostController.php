@@ -128,6 +128,7 @@ class PostController extends Controller
             return view('post.edit')->withPost($post)->withCats($cats)->withTags($tags2)->withUser($user);
         }else{
             return view('post.show')->withPost($post)->withUser($user);    
+            return view('post.edit')->withPost($post)->withCats($cats)->withTags($tags2);
         }
 
     }

@@ -4,18 +4,31 @@
 <div class="banner">
   <div class="container">
     <div class="header" style="padding: 1px;padding-top: 17px;">
+
+    <div class="header" style="padding: 20px;">
       <div class="logo">
         <a href="/"><img src="{{ URL::to('/') }}/images/logo1.png" class="img-responsive" alt="" /></a>
       </div>
       <div class="header-right">
         <ul>
           <li><a href="#"><i class="fb"> </i></a></li>
+
           <li><a href="https://github.com/sherpalakpa18/" target="_blank"><img src="https://static.wixstatic.com/media/51a5bd_6e89080215274fd7975c23895800b7b1~mv2.png" width="30" height="30"></a></li>
         <li><!-- 
           <button class="btn btn-default btn-sm only_outline">Login</button>
           <span style="font-size:25px;color: white;"> | </span>  
           <button class="btn btn-default btn-sm only_outline">SignUp</button> -->
-            @if( Auth::check() )
+          {{-- @if( Auth::check() ) --}}
+          {{-- <li><a href="#"><i class="twt"> </i></a></li> --}}
+        {{-- <li>
+        <div class="search2">
+          <form>
+            <input type="text" value="Search.." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search..';}" style="height: 13px;">
+            <input type="submit" value="">
+          </form>
+        </div></li> --}}
+          <div class="clearfix"></div>
+          @if( Auth::check() )
             <li class="dropdown">
             <style type="text/css">
               .dropdown-toggle{
@@ -64,9 +77,15 @@
                   <span style="font-size:25px;color: white;">  | </span>  
                   <a class="text-bold" href="{{ route('register')}}" data-ga-click="(Logged out) Header, clicked Sign up, text:sign-up"><button class="btn btn-default btn-sm only_outline">Sign up</button></a>
            
-                @endif
+              @endif
         </li>
-          <div class="clearfix"></div>
+         {{--  <div class="clearfix"></div>
+
+                <div class="nav-margin">
+                  <a class="text-bold" href="{{ route('login')}}" data-ga-click="(Logged out) Header, clicked Sign in, text:sign-in"><button class="btn btn-primary">Sign in</button></a> or 
+                  <a class="text-bold" href="{{ route('register')}}" data-ga-click="(Logged out) Header, clicked Sign up, text:sign-up"><button class="btn btn-default">Sign up</button></a>
+                </div> --}}
+                {{-- @endif --}}
         </ul>
       </div>
         <div class="clearfix"> </div>
@@ -90,7 +109,6 @@
             <li class="{{ Request::is('contact') ? "active" : "" }}"><a href="/contact">Contact</a></li>
                 <div class="clearfix"> </div>
             </ul>
-
         </div>
 
             <!-- script-for-nav -->

@@ -14,7 +14,6 @@
 <!-- Custom Fonts -->
 <link href="../../admins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-
 	{!!	Html::style('css/parsley.css')	!!}
 	{!!	Html::style('css/select2.min.css')	!!}
 
