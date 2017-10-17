@@ -1,13 +1,37 @@
-@extends('main')
+@extends('admins.main')
 
 @section('title','| View Post')
 
+@section('stylesheet')
+
+<!-- added to overcome bootstrap load fail -->
+<!-- Bootstrap Core CSS -->
+<link href="../admins/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom CSS -->
+<link href="../admins/css/sb-admin.css" rel="stylesheet">
+
+<!-- Custom Fonts -->
+<link href="../admins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+@endsection
+
 @section('content')
+<!-- Page Heading -->
+<div class="row">
+	<div class="col-lg-12">
+		<h1 class="page-header">
+		{{ $post->title }}
+		</h1>
+	</div>
+</div>
+<!-- /.row -->
+
 <div class="row">
 	<div class="col-md-8"  style="word-wrap: break-word">
-		<h1>{{	$post->title	}}</h1>
 		
-		<img src="{{ asset('images/' . $post->image) }}" height="200" width="400" alt="This is lakpa bodyguard">
+		<img src="{{ asset('images/' . $post->image) }}" height="200" width="350" class="img-thumbnail pull-right">
 		<p class="lead"> {!! $post->body !!}</p>
 		<hr>
 		<div class="tags">
@@ -69,20 +93,45 @@
 			<hr>
 			<div class="row">
 				<div class="col-sm-6">
-					{!! Html::linkRoute('posts.edit', 'Edit', array($post->id), array('class' => 'btn btn-primary btn-block')) !!}
+				<a href="@if(Auth::user()->id == $post->user_id || Auth::user()->admin)
+								{{ route('posts.edit', $post->id) }}
+								@else
+								{{ "javascript:;" }}
+								@endif" class="btn btn-primary btn-block" {{ Auth::user()->id == $post->user_id || Auth::user()->admin ? "" : "disabled" }}>Edit</a>
 					
 				</div>
+				@if(Auth::user()->id == $post->user_id || Auth::user()->admin)
+
 				<div class="col-sm-6">
 					{!! Form::open(['route' => ['posts.destroy', $post->id],'method' => 'DELETE']) !!}
 
 					{!! Form::submit('Delete', ['class' =>  'btn btn-danger btn-block']) !!}
-
-					{!! Form::close() !!}
 				</div>
+				@else
+				<div class="col-sm-6">
+					{!! Form::open(['route' => ['posts.destroy', $post->id],'method' => 'DELETE']) !!}
+
+					{!! Form::submit('Delete', ['class' =>  'btn btn-danger btn-block','disabled' => 'disabled','id' => 'mySubmit']) !!}
+				</div>
+					<script type="text/javascript">
+							document.getElementById("mySubmit").disabled = true;
+					</script>	
+				{!! Form::close() !!}
+				@endif
 
 			</div>
 		</div>
 		<a href="{{ route('posts.index') }}" class="btn btn-success btn-block">Show all post</a>
 	</div>
 </div>
+@endsection
+
+@section('scripts')
+
+<!-- jQuery -->
+<script src="../admins/js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="../admins/js/bootstrap.min.js"></script>
+
 @endsection

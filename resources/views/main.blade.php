@@ -2,7 +2,6 @@
 <html lang="en">
   <head>
     @include('partial._head')
-    
   </head>
 <body>
   @include('partial._nav')

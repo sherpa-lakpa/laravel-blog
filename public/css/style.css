@@ -1,3 +1,111 @@
+/* Blog Display Comment Section */
+
+.panel-shadow {
+    box-shadow: rgba(0, 0, 0, 0.3) 7px 7px 7px;
+}
+.panel-white {
+  border: 1px solid #dddddd;
+}
+.panel-white  .panel-heading {
+  color: #333;
+  background-color: #fff;
+  border-color: #ddd;
+}
+.panel-white  .panel-footer {
+  background-color: #fff;
+  border-color: #ddd;
+}
+
+.post .post-heading {
+  height: 95px;
+  padding: 20px 15px;
+}
+.post .post-heading .avatar {
+  width: 60px;
+  height: 60px;
+  display: block;
+  margin-right: 15px;
+}
+.post .post-heading .meta .title {
+  margin-bottom: 0;
+}
+.post .post-heading .meta .title a {
+  color: black;
+}
+.post .post-heading .meta .title a:hover {
+  color: #aaaaaa;
+}
+.post .post-heading .meta .time {
+  margin-top: 8px;
+  color: #999;
+}
+.post .post-image .image {
+  width: 100%;
+  height: auto;
+}
+.post .post-description {
+  padding: 15px;
+}
+.post .post-description p {
+  font-size: 14px;
+}
+.post .post-description .stats {
+  margin-top: 20px;
+}
+.post .post-description .stats .stat-item {
+  display: inline-block;
+  margin-right: 15px;
+}
+.post .post-description .stats .stat-item .icon {
+  margin-right: 8px;
+}
+.post .post-footer {
+  border-top: 1px solid #ddd;
+  padding: 15px;
+}
+.post .post-footer .input-group-addon a {
+  color: #474E5D;
+}
+.post .post-footer .comments-list {
+  padding: 0;
+  margin-top: 20px;
+  list-style-type: none;
+}
+.post .post-footer .comments-list .comment {
+  display: block;
+  width: 100%;
+  margin: 20px 0;
+}
+.post .post-footer .comments-list .comment .avatar {
+  width: 35px;
+  height: 35px;
+}
+.post .post-footer .comments-list .comment .comment-heading {
+  display: block;
+  width: 100%;
+}
+.post .post-footer .comments-list .comment .comment-heading .user {
+  font-size: 14px;
+  font-weight: bold;
+  display: inline;
+  margin-top: 0;
+  margin-right: 10px;
+}
+.post .post-footer .comments-list .comment .comment-heading .time {
+  font-size: 12px;
+  color: #aaa;
+  margin-top: 0;
+  display: inline;
+}
+.post .post-footer .comments-list .comment .comment-body {
+  margin-left: 50px;
+}
+.post .post-footer .comments-list .comment > .comments-list {
+  margin-left: 50px;
+}
+
+/* EndSection */
+
 .btn-h1-spacing{
 	margin-top: 18px;
 }
@@ -251,7 +359,7 @@ p.para {
 	font-family: 'Open Sans', sans-serif;
 	color: #fff;
 	padding: 0.8em 1.5em;
-	background: #556a7f;
+	background: #474E5D;
 	text-decoration: none;
 	text-shadow: none;
 	border: 1px solid rgba(192, 192, 192, 0.61);
@@ -959,11 +1067,8 @@ span.mail a:hover{
 		font-size: 1em;
 	}
 }
-/*--//End-media Quries for 320px-monitors-*/
-/*Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
+/*--
+Single Post page CSS
 --*/
 h4, h5, h6,
 h1, h2, h3 {margin-top: 0;}
@@ -1037,7 +1142,7 @@ body a{
 ul a:hover,
 ul a:focus {
 	outline: none;
-	color:#fff;
+	color:#000;
 	text-decoration: none;
 }
 .cl-effect-15 a::before {
@@ -1130,7 +1235,7 @@ i.twt:hover {
 }
 /*--*/
 .banner{
-	background:#556a7f;
+	background:#474E5D;
 }
 .content{
 	background:#f5f6f7;
@@ -1146,7 +1251,7 @@ i.twt:hover {
 	text-align: center;
 	font-size: 1.1em;
 	font-weight: 600;
-	color: #556a7f;
+	color: #474E5D;
 	text-transform: uppercase;
 	text-align: left;
 	line-height: 1.4em;
@@ -1200,7 +1305,7 @@ a.link:hover{
 	text-align: center;
 	font-size: 1.2em;
 	font-weight: 700;
-	color: #556a7f;
+	color: #474E5D;
 	text-transform: uppercase;
 	text-align: left;
 	line-height: 1.4em;
@@ -1241,7 +1346,7 @@ a.link:hover{
 	text-align: center;
 	font-size: 1em;
 	font-weight: 700;
-	color: #556a7f;
+	color: #474E5D;
 	text-transform: uppercase;
 	text-align: left;
 	line-height: 1.4em;
@@ -1349,23 +1454,23 @@ i.lik {
 	vertical-align: middle;
 }
 .footer h6 {
-	color: #556a7f;
+	color: #474E5D;
 	font-size: 1em;
 	font-weight: 700;
 	text-align: left;
 }
 .footer p {
-	color: #dc8e7f;
+	color: #474E5D;
 	font-size: 1em;
 	font-weight: 300;
 	text-align: left;
 }
 .footer a{
-	color: #dc8e7f;
+	color: #474E5D;
 	text-decoration:none;
 }
 .footer a:hover {
-	color: #556a7f;
+	color: #dc8e7f;
 }
 /*--about--*/
 .about {
@@ -1373,18 +1478,11 @@ i.lik {
 	padding: 3em 0;
 }
 .biographys {
-	margin-top: 2em;
+	margin-top: 1em;
 	background: #fff;
 	padding: 2em 1.5em;
 	box-shadow: 0px 1px 4px 0px rgba(104, 123, 144, 0.31);
 	border-radius: 0.3em;
-}
-.about h2 {
-	color: #556a7f;
-	font-size: 3em;
-	margin: 0em;
-	font-weight: 700;
-	text-align:center;
 }
 .biography {
 	padding: 1em 0;
@@ -1393,7 +1491,7 @@ i.lik {
 	margin-bottom: 2em;
 }
 .biography-into h4 {
-	color: #556a7f;
+	color: #474E5D;
 	font-size: 1.5em;
 	margin-bottom: 0.5em;
 	font-weight: 700;
@@ -1431,7 +1529,7 @@ i.lik {
 	padding: 3em 0;
 }
 .photos h2 {
-	color: #556a7f;
+	color: #474E5D;
 	font-size: 3em;
 	margin: 0em;
 	font-weight: 700;
@@ -1453,7 +1551,7 @@ div#portfolio {
 	margin: 1em 0em;
 }
 .portfolio h3 {
-	color: #556a7f;
+	color: #474E5D;
 	font-weight: 700;
 	font-size: 1.5em;
 	text-align: left;
@@ -1603,7 +1701,7 @@ a.read {
 .error-404 h1 {
 	font-size: 12em;
 	font-weight: 700;
-	color: #556a7f;
+	color: #474E5D;
 	margin: 0;
 	padding: 0;
 	text-transform: uppercase;
@@ -1615,7 +1713,7 @@ a.read {
 	text-transform: uppercase;
 } 
 a.b-home{
-	background:#556a7f;
+	background:#474E5D;
 	padding:0.8em 3em;
 	display:inline-block;
 	color:#FFF;
@@ -1627,7 +1725,7 @@ a.b-home:hover{
 }
 /*--contact us--*/
 .contact-top h2 {
-	color: #556a7f;
+	color: #474E5D;
 	font-size: 3em;
 	margin: 0em;
 	font-weight: 700;
@@ -1684,7 +1782,7 @@ a.b-home:hover{
 .contact-info input[type="submit"] {
 	outline: none;
 	border: none;
-	background: #556a7f;
+	background: #474E5D;
 	color: #fff;
 	padding: 0.4em 1.8em;
 	font-weight: 600;
@@ -1700,7 +1798,7 @@ a.b-home:hover{
 	background-color: #dc8e7f;
 }
 .contact-left h5 {
-	color: #556a7f;
+	color: #474E5D;
 	text-align: center;
 	padding: 0.58em 0 0.5em;
 	font-size: 1.5em;
@@ -1746,7 +1844,7 @@ strong {
 	background: #f5f6f7;
 }
 .details h3 {
-	color: #556a7f;
+	color: #474E5D;
 	font-size: 1.5em;
 	margin-bottom: 0.5em;
 	font-weight: 700;
@@ -1776,7 +1874,7 @@ strong {
 #loadMore {
 	color: #fff;
 	cursor: pointer;
-	background: rgb(85, 106, 127);
+	background: #474E5D;
 	padding: 10px;
 	width: 10%;
 	margin: 0 10px;
@@ -1798,7 +1896,7 @@ strong {
 }
 #showLess:hover {
 	color: #fff;
-    background: rgb(85, 106, 127); 
+    background: #474E5D; 
     transition:0.5s all;
 }
 .l_g:after{
@@ -1818,7 +1916,7 @@ ul#myList {
 	padding: 0;
 }
 .leave h4 {
-	color: #556a7f;
+	color: #474E5D;
 	font-size: 1.5em;
 	margin: 0.5em 0;
 	font-weight: 700;
@@ -1829,7 +1927,7 @@ ul#myList {
 .comments1 h4 {
 	font-size: 1.5em;
 	margin-bottom: 1.2em;
-	color: #556a7f;
+	color: #474E5D;
 	font-weight: 700;
 }
 .comments-main {
@@ -1881,7 +1979,7 @@ ul#myList {
 #commentform input[type="submit"] {
 	padding: 0.6em 2em;
 	color: #FFF;
-	background: #556a7f;
+	background: #474E5D;
 	outline: none;
 	border: none;
 	text-transform: uppercase;
@@ -2139,7 +2237,7 @@ ul.links li.last {
 	width: 100%;
 	display: none;
 	text-align: center;
-	background:#556A7F;
+	background:#474E5D;
 	left:0em;
 	top:9em;
 }

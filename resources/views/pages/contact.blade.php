@@ -6,13 +6,11 @@
 <!-- header -->
 <div class="contact-top">
 <div class="container">
-    <h2>Contact</h2>    
       <div class="contact">
-
           <div class="contact-down">
               <div class="contact-right">
                 <div class="col-md-6 contact-left">
-                  <h4 style="color: #556a7f;margin-top: 50px;">CONTACT-INFO</h4>
+                  <h4 style="color: #474E5D;margin-top: 50px;">CONTACT-INFO</h4>
                     <h5>Any queries or suggestion please do contact us.</h5>
                         <address><br><br>
                           E-mail: <a href="mailto:info@example.com">mail@example.com<script cf-hash="f9e31" type="text/javascript">
@@ -67,11 +65,4 @@
         </div>
       </div>
  -->
-@endsection
-
-@section('scripts')
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 @endsection

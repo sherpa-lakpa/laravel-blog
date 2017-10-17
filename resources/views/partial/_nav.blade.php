@@ -3,32 +3,35 @@
 <script src="js/jquery.min.js"></script>
 <div class="banner">
   <div class="container">
-    <div class="header">
+    <div class="header" style="padding: 1px;padding-top: 17px;">
       <div class="logo">
-        <a href="/"><img src="{{ URL::to('/') }}/images/logo.png" class="img-responsive" alt="" /></a>
+        <a href="/"><img src="{{ URL::to('/') }}/images/logo1.png" class="img-responsive" alt="" /></a>
       </div>
       <div class="header-right">
         <ul>
           <li><a href="#"><i class="fb"> </i></a></li>
-          <li><a href="#"><i class="twt"> </i></a></li>
-        <li>
-        <div class="search2">
-          <form>
-            <input type="text" value="Search.." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search..';}">
-            <input type="submit" value="">
-          </form>
-        </div></li>
-          <div class="clearfix"></div>
-          @if( Auth::check() )
+          <li><a href="https://github.com/sherpalakpa18/" target="_blank"><img src="https://static.wixstatic.com/media/51a5bd_6e89080215274fd7975c23895800b7b1~mv2.png" width="30" height="30"></a></li>
+        <li><!-- 
+          <button class="btn btn-default btn-sm only_outline">Login</button>
+          <span style="font-size:25px;color: white;"> | </span>  
+          <button class="btn btn-default btn-sm only_outline">SignUp</button> -->
+            @if( Auth::check() )
             <li class="dropdown">
-              <a href="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <style type="text/css">
+              .dropdown-toggle{
+                color: white;
+              }
+              .dropdown-menu li{
+                color: white;
+                width: 95%;
+              }
+            </style>
+              <a href="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="font-size: 20px;">
               Hello {{ Auth::user()->name }}              
               <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="{{ route('posts.index') }}">Posts</a></li>
-                <li><a href="{{ route('categories.index') }}">Categories</a></li>
-                <li><a href="{{ route('tags.index') }}">Tags</a></li>
-                <li role="separator" class="divider"></li>
+                <li><a href="/admin">Admin Panel</a></li>
+                <li role="presentation" class="divider"></li>
                 <li>
                      <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
@@ -41,22 +44,48 @@
                                         </form>
                 </li>
                 @else
-                <div class="nav-margin">
-                  <a class="text-bold" href="{{ route('login')}}" data-ga-click="(Logged out) Header, clicked Sign in, text:sign-in"><button class="btn btn-primary">Sign in</button></a> or 
-                  <a class="text-bold" href="{{ route('register')}}" data-ga-click="(Logged out) Header, clicked Sign up, text:sign-up"><button class="btn btn-default">Sign up</button></a>
-                </div>
+                      <style>
+                      .only_outline{
+                        background:rgba(0,0,0,0);
+                        color: white;
+                        width: 100px;
+                        height: 40px;
+                        border-radius: 20px;
+                        font-size: 16px;
+                        margin-top: -10px;
+                      }
+                      .btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active, .open>.dropdown-toggle.btn-success {
+                          color: #556a7f;
+                          background-color: rgba(255,255,255,0.5);
+                          border-color: #285e8e; /*set the color you want here*/
+                      }
+                      </style>
+                  <a class="text-bold" href="{{ route('login')}}" data-ga-click="(Logged out) Header, clicked Sign in, text:sign-in"><button class="btn btn-default btn-sm only_outline">Sign in</button></a>  
+                  <span style="font-size:25px;color: white;">  | </span>  
+                  <a class="text-bold" href="{{ route('register')}}" data-ga-click="(Logged out) Header, clicked Sign up, text:sign-up"><button class="btn btn-default btn-sm only_outline">Sign up</button></a>
+           
                 @endif
+        </li>
+          <div class="clearfix"></div>
         </ul>
-          
       </div>
         <div class="clearfix"> </div>
       </div>
         <div class="head-nav">
           <span class="menu"> </span>
+           <ul class="nav navbar-nav navbar-right">
+            <li>
+            <div class="search2">
+              <form method="get" action="/search">
+                <input type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search..';}" style="height: 13px;" name="data">
+                <input type="submit" value="">
+              </form>
+            </div></li>
+            </ul>
             <ul class="cl-effect-15">
             <li class="{{ Request::is('/') ? "active" : "" }}"><a href="/">Home</a></li>
             <li class="{{ Request::is('browse') ? "active" : "" }}"><a href="/browse">Browse</a></li>
-            <li class="{{ Request::is('blog') ? "active" : "" }}"><a href="/blog">Blog</a></li>
+            {{-- <li class="{{ Request::is('blog') ? "active" : "" }}"><a href="/blog">Blog</a></li> --}}
             <li class="{{ Request::is('about') ? "active" : "" }}"><a href="/about">About</a></li>
             <li class="{{ Request::is('contact') ? "active" : "" }}"><a href="/contact">Contact</a></li>
                 <div class="clearfix"> </div>

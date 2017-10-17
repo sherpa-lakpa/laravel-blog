@@ -7,6 +7,7 @@ use App\Post;
 use Session;
 use App\Category;
 use App\Tag;
+use App\User;
 use Purifier;
 use Image;
 use Storage;
@@ -56,6 +57,7 @@ class PostController extends Controller
                 'title' => 'required|max:255',
                 'body' => 'required',
                 'category_id' => 'required|integer',
+                'user_id' => 'required|integer',
                 'slug' => 'required|alpha_dash|min:5|max:255|unique:posts,slug',
                 'featured_image' => 'sometimes|image'
             ));
@@ -67,6 +69,7 @@ class PostController extends Controller
         $post->title = $request->title;
         $post->body = Purifier::clean($request->body);
         $post->category_id = $request->category_id;
+        $post->user_id = $request->user_id;
         $post->slug = $request->slug;
         
         if ($request->hasFile('featured_image')) {
@@ -75,6 +78,8 @@ class PostController extends Controller
           $location = public_path('images/' . $filename);
           Image::make($image)->resize(800, 400)->save($location);
           $post->image = $filename;
+        }else{
+          $post->image = 'post.png';
         }
 
         $post->save();
@@ -96,7 +101,35 @@ class PostController extends Controller
     public function show($id)
     {   
         $post = Post::find($id);
-        return view('post.show')->withPost($post);
+        
+        $category = Category::find($post->category_id);
+
+        // echo "<script>alert($post->category_id)</script>";
+        $uid = User::find($post->user_id);
+
+        $user = $uid->name;
+
+        if(!isset($category)){
+
+            $categories = Category::all();
+            $cats = [];
+
+            foreach ($categories as $key => $category) {
+                $cats[$category->id] = $category->name;
+            }
+            $tags = Tag::all();
+            $tags2 = array();
+
+            foreach ($tags as $key => $tag) {
+                $tags2[$tag->id] = $tag->name;
+            }
+            //return the var in view
+            Session::flash('error',"Category Deleted of this post please assign another.");
+            return view('post.edit')->withPost($post)->withCats($cats)->withTags($tags2)->withUser($user);
+        }else{
+            return view('post.show')->withPost($post)->withUser($user);    
+        }
+
     }
 
     /**

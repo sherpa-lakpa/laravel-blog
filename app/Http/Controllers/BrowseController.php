@@ -6,26 +6,32 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Post;
+use App\Page;
+use App\Comment;
+use App\Category;
 use Mail;
 use Session;
+use DateTime;
 
 class BrowseController extends Controller {
+
+	public function getMain(){
+		return view('pages.welcome');
+	}
 
 	public function getIndex() {
 		// $posts = Post::orderBy('created_at', 'desc')->limit(8)->get();
 		$posts = Post::orderBy('created_at', 'desc')->get();
-		return view('pages.browse')->withPosts($posts);
+
+		$comments = Comment::orderBy('created_at', 'desc')->limit(5)->get();
+
+		$categories = Category::orderBy('created_at', 'desc')->get();
+
+		return view('pages.browse')->withPosts($posts)->withComments($comments)->withCategories($categories);
 	}
 
 	public function getAbout() {
-		$first = 'Lakpa';
-		$last = 'Sherpa';
-
-		$fullname = $first . " " . $last;
-		$email = 'sherpalakpa18@gmail.com';
-		$data = [];
-		$data['email'] = $email;
-		$data['fullname'] = $fullname;
+        $data = Page::where('page', '=', 'about')->get();
 		return view('pages.about')->withData($data);
 	}
 
@@ -55,6 +61,17 @@ class BrowseController extends Controller {
 
 		return redirect('/');
 	}
+	public function search()
+    {
+        $search = \Request::get('data'); //<-- we use global request to get the param of URI
+
+        $posts = Post::where('title','like','%'.$search.'%')
+        	->where('slug','like','%'.$search.'%')
+            ->orderBy('title')
+            ->paginate(10);
+
+        return view('search')->withPosts($posts);
+    }
 
 
 }

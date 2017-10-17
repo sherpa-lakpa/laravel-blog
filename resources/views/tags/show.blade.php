@@ -1,11 +1,26 @@
-@extends('main')
+@extends('admins.main')
 
 @section('title', "| $tag->name")
+
+@section('stylesheet')
+
+<!-- added to overcome bootstrap load fail -->
+<!-- Bootstrap Core CSS -->
+<link href="../admins/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom CSS -->
+<link href="../admins/css/sb-admin.css" rel="stylesheet">
+
+<!-- Custom Fonts -->
+<link href="../admins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+@endsection
 
 @section('content')
 <div class="row">
 	<div class="col-md-8">
-	<h1>{{ $tag->name }}<small>{{ $tag->posts()->count() }}</small></h1>
+	<h1>{{ $tag->name }} - <small>Posts ({{ $tag->posts()->count() }})</small></h1>
 	</div>
 	<div class="col-md-2">
 		<a href="{{ route('tags.edit', $tag->id) }}" class="btn btn-primary btn-block pull-right">Edit</a>
@@ -45,5 +60,15 @@
 		</table>
 	</div>
 </div>
+
+@endsection
+
+@section('scripts')
+
+<!-- jQuery -->
+<script src="../admins/js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="../admins/js/bootstrap.min.js"></script>
 
 @endsection

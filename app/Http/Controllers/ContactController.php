@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Contact;
 use Session;
+use App\Post;
 
 class ContactController extends Controller
 {
@@ -13,9 +14,16 @@ class ContactController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    // Test for elastic search 
+    /*public function index()
+    {
+        return view('home');
+    }*/
+
     public function index()
     {
-        //
+        $contacts = Contact::orderBy('id','desc')->paginate(5);
+        return view('messages.index')->withContacts($contacts);
     }
 
     /**
@@ -56,7 +64,7 @@ class ContactController extends Controller
         Session::flash('success', 'Your message has been successfully!');
 
         //redirect to another page
-        return redirect()->action('PagesController@getContact');
+        return redirect()->action('BrowseController@getContact');
     }
 
     /**
@@ -103,4 +111,17 @@ class ContactController extends Controller
     {
         //
     }
+    /*
+    Search function for elastic search
+    */
+  /*  public function search()
+    {
+        $search = \Request::get('data'); //<-- we use global request to get the param of URI
+
+        $posts = Post::where('title','like','%'.$search.'%')
+            ->orderBy('title')
+            ->paginate(10);
+
+        return view('search')->withPosts($posts);
+    }*/
 }

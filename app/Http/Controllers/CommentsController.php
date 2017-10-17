@@ -10,7 +10,24 @@ use App\Post;
 class CommentsController extends Controller
 {
     public function __construct(){
-        $this->middleware('auth', ['except' => 'show']);
+        $this->middleware('auth', ['except' => ['show','store']]);
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        //Display all category
+        // $comments = Comment::orderBy('id','desc')->paginate(5);
+
+        $comments = Post::select('comments.id','title','name','comment','email','posts.user_id','comments.created_at')
+            ->rightJoin('comments', 'posts.id', '=', 'comments.post_id')
+            ->get();
+
+        return view('admins.pages.comments')->withComments($comments);
+
     }
 
     /**
@@ -27,6 +44,7 @@ class CommentsController extends Controller
                 'comment' => 'required|min:5|max:2000'
             ));
         $post = Post::find($post_id);
+        
         $comment = new Comment;
 
         $comment->name = $request->name;
@@ -38,7 +56,7 @@ class CommentsController extends Controller
 
         $comment->save();
 
-        Session::flash('success', 'Comment was added');
+        Session::flash('Comment_success', 'Comment was added');
 
         return redirect()->route('blog.single', [$post->slug]);
     }
@@ -51,7 +69,8 @@ class CommentsController extends Controller
      */
     public function show(Request $request,$post_id)
     {
-        //
+        $comment = Comment::find($id);
+        return view('admins.pages.comments')->withTag($comment);
     }
 
     /**
@@ -111,6 +130,6 @@ class CommentsController extends Controller
 
         Session::flash('success', 'Comment deleted successfully!');
 
-        return redirect()->route('posts.show', $comment->post->id);
+        return redirect()->route('comments.index');
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Category;
 use Session;
+
 class CategoryController extends Controller
 {
     public function __contruct(){
@@ -41,6 +42,7 @@ class CategoryController extends Controller
         $this->validate($request, array(
                 'name' => 'required|max:255'
             ));
+
         $category = new Category;
 
         $category->name = $request->name;
@@ -48,8 +50,8 @@ class CategoryController extends Controller
         $categories = Category::all();
 
         foreach ($categories as $key => $value) {
-            if($value->name = $request->name){
-                Session::flash('error','Category dublicated');
+            if($request->name == $value->name){
+                Session::flash('error',"Category dublicated $request->name");
                 return redirect()->route('categories.index');
             }
         }
@@ -79,7 +81,9 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::find($id);
+
+        return view('categories.edit')->withCategory($category);
     }
 
     /**
@@ -91,7 +95,27 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, array(
+                'name' => 'required|max:255'
+            ));
+        $category = Category::find($id);
+
+        $category->name = $request->name;
+
+        $categories = Category::all();
+
+        foreach ($categories as $key => $value) {
+            if($request->name == $value->name){
+                Session::flash('error',"Category dublicated $request->name");
+                return redirect()->route('categories.index');
+            }
+        }
+
+        $category->save();
+
+        Session::flash('success','Category Edited successfully!');
+
+        return redirect()->route('categories.show', $id);
     }
 
     /**
@@ -102,6 +126,14 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::find($id);
+
+        // $category->posts()->detach();
+
+        $category->delete();
+
+        Session::flash('success', 'Category deleted successfully!');
+
+        return redirect()->route('categories.index');
     }
 }

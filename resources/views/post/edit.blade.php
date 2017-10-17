@@ -1,25 +1,59 @@
-@extends('main')
+@extends('admins.main')
 
 @section('title','| Edit Post')
 
 @section('stylesheet')
+
+<!-- added to overcome bootstrap load fail -->
+<!-- Bootstrap Core CSS -->
+<link href="../../admins/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom CSS -->
+<link href="../../admins/css/sb-admin.css" rel="stylesheet">
+
+<!-- Custom Fonts -->
+<link href="../../admins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
 	{!!	Html::style('css/parsley.css')	!!}
 	{!!	Html::style('css/select2.min.css')	!!}
 
-	<script src="//cloud.tinymce.com/stable/tinymce.min.js"></script>
-	<script>
+	<script src="//cloud.tinymce.com/stable/tinymce.min.js?apiKey=j2pgd7w5h7sg6k7tqn7c5kvhy6pq44ikq4mt6yj1emaxdpb3"></script>
+	{{-- <script>
 		tinymce.init({
 			selector: 'textarea',
 			plugins: 'link code',
 			menubar: false
 		});
+	</script> --}}
+	<script>
+		tinymce.init({
+		    selector: "textarea",
+		    plugins: [
+		        "advlist autolink lists link image charmap print preview anchor",
+		        "searchreplace visualblocks code fullscreen",
+		        "insertdatetime media table contextmenu paste"
+		    ],
+		    toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+		});
 	</script>
 @endsection
 
 @section('content')
+<!-- Page Heading -->
+<div class="row">
+	<div class="col-lg-12">
+		<h1 class="page-header">
+		Edit Post <small> ({{ $post->title }})</small>
+		</h1>
+	</div>
+</div>
+<!-- /.row -->
 <div class="row">
 	{!! Form::model($post, ['route' => ['posts.update', $post->id], 'method' => 'PUT', 'files' => true]) !!}
 	<div class="col-md-8" style="word-wrap: break-word">
+		{{ Form::hidden('user_id', Auth::user()->id, array('class' => 'form-control','required' => '')) }}
+		
 		{{ Form::label('title', 'Title:') }}
 		{{ Form::text('title', null, ['class' => 'form-control input-lg']) }}
 
@@ -68,6 +102,14 @@
 @endsection
 
 @section('scripts')
+
+<!-- jQuery -->
+<script src="../../admins/js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="../../admins/js/bootstrap.min.js"></script>
+
+
 	{!!	Html::script('js/parsley.min.js')	!!}
 	{!!	Html::script('js/select2.min.js')	!!}
 

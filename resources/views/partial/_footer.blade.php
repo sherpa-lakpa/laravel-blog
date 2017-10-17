@@ -37,7 +37,7 @@
 				</div>
 				<div class="top2">
 					<h6>Website </h6>
-					<p><a href="#"> www.howto.com</a></p>
+					<p><a href="#"> www.how.com</a></p>
 				</div>
 				<div class="clearfix"> </div>
 			</div>

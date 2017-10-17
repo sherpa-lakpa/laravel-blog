@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <!-- Theme Made By www.w3schools.com - No Copyright -->
-  <title>Bootstrap Theme Simply Me</title>
+  <title>How?</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -49,7 +49,96 @@
   .navbar-nav  li a:hover {
       color: #1abc9c !important;
   }
+
+#search {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    
+    -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+
+    -webkit-transform: translate(0px, -100%) scale(0, 0);
+  -moz-transform: translate(0px, -100%) scale(0, 0);
+  -o-transform: translate(0px, -100%) scale(0, 0);
+  -ms-transform: translate(0px, -100%) scale(0, 0);
+  transform: translate(0px, -100%) scale(0, 0);
+    
+    opacity: 0;
+}
+
+#search.open {
+    -webkit-transform: translate(0px, 0px) scale(1, 1);
+    -moz-transform: translate(0px, 0px) scale(1, 1);
+  -o-transform: translate(0px, 0px) scale(1, 1);
+  -ms-transform: translate(0px, 0px) scale(1, 1);
+  transform: translate(0px, 0px) scale(1, 1); 
+    opacity: 1;
+}
+
+#search input[type="search"] {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    color: rgb(255, 255, 255);
+    background: rgba(0, 0, 0, 0);
+    font-size: 60px;
+    font-weight: 300;
+    text-align: center;
+    border: 0px;
+    margin: 0px auto;
+    margin-top: -51px;
+    padding-left: 30px;
+    padding-right: 30px;
+    outline: none;
+}
+#search .btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: 61px;
+    margin-left: -45px;
+}
+#search .close {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    color: #fff;
+  background-color: #428bca;
+  border-color: #357ebd;
+  opacity: 1;
+  padding: 10px 17px;
+  font-size: 27px;
+}
   </style>
+<script type="text/javascript">
+  $(function () {
+    $('a[href="#search"]').on('click', function(event) {
+        event.preventDefault();
+        $('#search').addClass('open');
+        $('#search > form > input[type="search"]').focus();
+    });
+    
+    $('#search, #search button.close').on('click keyup', function(event) {
+        if (event.target == this || event.target.className == 'close' || event.keyCode == 27) {
+            $(this).removeClass('open');
+        }
+    });
+    
+    
+    // //Do not include! This prevents the form from submitting for DEMO purposes only!
+    // $('form').submit(function(event) {
+    //     event.preventDefault();
+    //     return false;
+    // })
+});
+</script>
 </head>
 <body>
 
@@ -77,98 +166,54 @@
 <!-- First Container -->
 <div class="container-fluid bg-1 text-center">
   <h3 class="margin">Want to Join How Community ?</h3>
-  <img src="images/bird.jpg" class="img-responsive img-circle margin" style="display:inline" alt="Bird" width="350" height="350">
-  <h3>I'm an adventurer</h3>
+  <a href="/register"><img src="images/bird.jpg" class="img-responsive img-circle margin" style="display:inline" alt="Bird" width="350" height="350"></a>
+    <h5><a href="#search" class="btn btn-default btn-lg">
+    <span class="glyphicon glyphicon-search"></span> Search
+    </a>
+    </h5>
+  <h3>We are a contributers.</h3>
+</div>
+<div id="search">
+    <button type="button" class="close">×</button>
+    <form method="get" action="/search">
+        <input type="search" value="" placeholder="type keyword(s) here" name="data" />
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
 </div>
 
 <!-- Second Container -->
 <div class="container-fluid bg-2 text-center">
   <h3 class="margin">What are we?</h3>
-  <p>How Community is online blog platform for sharing different steps to install or solving any error related to any platforms. </p>
-  <p>How to posts are added on every error on this community</p>
-  <a href="#" class="btn btn-default btn-lg">
-    <span class="glyphicon glyphicon-search"></span> Search
+  <p>How Community is online blog platform for sharing different steps to install or solving particular error related to any platforms. </p>
+  <p>How? posts are added on every error on the blog.</p>
+  <a href="/browse" class="btn btn-default btn-lg">
+    <span class="glyphicon glyphicon-eye-open"></span> Browse
   </a>
 </div>
 
 <!-- Third Container (Grid) -->
 <div class="container-fluid bg-3 text-center">    
-  <h3 class="margin">Where To Find Me?</h3><br>
+  <h3 class="margin">Why How? <br>(<small>In small step</small>)</h3><br>
   <div class="row">
     <div class="col-sm-4">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      <img src="images/birds1.jpg" class="img-responsive margin" style="width:100%" alt="Image">
+      <p>Newbie search for solving errors and installation setups through out the internet.</p>
+      <img src="images/step1.jpg" class="img-responsive margin" style="width:80%" alt="Image">
     </div>
     <div class="col-sm-4"> 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      <img src="images/birds2.jpg" class="img-responsive margin" style="width:100%" alt="Image">
+      <p>They try many steps and different solution searching various sites.</p>
+      <img src="images/step2.jpg" class="img-responsive margin" style="width:100%;margin-left: 1px;" alt="Image">
     </div>
     <div class="col-sm-4"> 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      <img src="images/birds3.jpg" class="img-responsive margin" style="width:100%" alt="Image">
+      <p>Get to know about How? blog and solve their solution. And even join our community to contribute other Newbies.</p>
+      <img src="images/step3.jpg" class="img-responsive margin" style="width:80%" alt="Image">
     </div>
   </div>
 </div>
 
 <!-- Footer -->
 <footer class="container-fluid bg-4 text-center">
-  <p>Bootstrap Theme Made By <a href="https://www.w3schools.com">www.w3schools.com</a></p> 
+  <p>Thanks for theme to - <a href="https://www.w3schools.com">www.w3schools.com</a></p> 
 </footer>
 
 </body>
 </html>
-
-
-
-<!-- 
-      <div class="row">
-        <div class="col-md-12" style="background:transparent url('images/slide.jpg') no-repeat center center /cover; height: 450px;color: white;">
-
-            <h1 style="text-align: center;">Join the Error blog!</h1>
-            <p class="lead" style="padding-top:60px;width: 400px;text-align: center;">Thank you so much for visiting. This blog contains solution for the errors you may encounter. This is my test website built with Laravel.</p>
-            <div>
-            <p> Join us. it only takes a minute. </p>
-            <p><a class="btn btn-primary btn-lg" href="/register" role="button">Sign Up</a></p>
-              
-            </div>
-        </div>
-      </div>
-      end of header .row
-      <div class="row">
-        <div class="col-md-5">
-          <h1>New Posts</h1>
-          @foreach($posts as $post)
-
-            <div class="post">
-              <h3>{{ $post->title }}</h3>
-              <p>{{ substr(strip_tags($post->body), 0, 50) }}{{ strlen(strip_tags($post->body)) > 50 ? " ....." : "" }}</p>
-              <a href="{{ url('blog/'.$post->slug) }}" class="btn btn-primary">Read More</a>
-            </div>
-
-            <hr>
-          @endforeach
-        </div>
-
-        <div class="col-md-4">
-          <h1>Featured Posts</h1>
-          @foreach($posts as $post)
-
-            <div class="post">
-              <h3>{{ $post->title }}</h3>
-              <p>{{ substr(strip_tags($post->body), 0, 50) }}{{ strlen(strip_tags($post->body)) > 50 ? " ....." : "" }}</p>
-              <a href="{{ url('blog/'.$post->slug) }}" class="btn btn-primary">Read More</a>
-            </div>
-
-            <hr>
-          @endforeach
-        </div>
-
-        <div class="col-md-3">
-          <h2>Do you know? (linux)</h2>
-          <div class="well well-sm">How to Install VLC</div>
-          <div class="well well-sm">How to Install Sublime</div>
-          <div class="well well-sm">How to Install Python</div>
-          <div class="well well-sm">How to Install Tuxguitar</div>
-        </div>
-      </div>
- -->
